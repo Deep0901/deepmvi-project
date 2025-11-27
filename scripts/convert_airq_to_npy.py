@@ -1,43 +1,21 @@
-#!/usr/bin/env python3
-import os, sys, numpy as np, pandas as pd
-SRC = os.environ.get("AIRQ_SRC", "/home/deeps/deepmvi-seminar/imputegap/datasets/air_quality/airq.txt")
-DST_DIR = "/home/deeps/deepmvi-seminar/data/airq"
-os.makedirs(DST_DIR, exist_ok=True)
+import numpy as np
+import pandas as pd
+import os
 
-print("Reading source:", SRC)
-if not os.path.exists(SRC):
-    raise SystemExit("Source file not found: " + SRC)
+SRC = "data/airq/airq_m200.txt"
+OUT_DIR = "data/airq"
 
-ext = os.path.splitext(SRC)[1].lower()
-if ext in (".csv", ".txt"):
-    # try automatic delimiter detection (commas, tabs, whitespace)
-    try:
-        df = pd.read_csv(SRC, sep=None, engine="python")
-    except Exception:
-        df = pd.read_csv(SRC, sep='\s+', engine="python")
-elif ext in (".parquet",):
-    df = pd.read_parquet(SRC)
-elif ext == ".npy":
-    arr = np.load(SRC, allow_pickle=True)
-    if isinstance(arr, np.ndarray):
-        X = arr.astype(float)
-        A = (~np.isnan(X)).astype(int)
-        np.save(os.path.join(DST_DIR, "X.npy"), np.nan_to_num(X, 0.0))
-        np.save(os.path.join(DST_DIR, "A.npy"), A)
-        print("Saved X.npy and A.npy from .npy file")
-        raise SystemExit(0)
-else:
-    raise SystemExit("Unsupported file type: " + ext)
-
-# drop non-numeric columns
-for c in list(df.columns):
-    if not np.issubdtype(df[c].dtype, np.number):
-        print("Dropping non-numeric column:", c)
-        df = df.drop(columns=[c])
+print("Loading:", SRC)
+df = pd.read_csv(SRC, sep=r"\s+", engine="python")
 
 X = df.values.astype(float)
-A = (~np.isnan(X)).astype(int)
-np.save(os.path.join(DST_DIR, "X.npy"), np.nan_to_num(X, 0.0))
-np.save(os.path.join(DST_DIR, "A.npy"), A)
-print("Saved:", os.path.join(DST_DIR, "X.npy"), os.path.join(DST_DIR, "A.npy"))
-print("Shape:", X.shape, "missing_frac:", float(np.isnan(X).mean()))
+
+# No missing values originally → fill A with 1s
+A = np.ones_like(X, dtype=int)
+
+np.save(os.path.join(OUT_DIR, "X.npy"), X)
+np.save(os.path.join(OUT_DIR, "A.npy"), A)
+
+print("Saved:")
+print(" - data/airq/X.npy  shape", X.shape)
+print(" - data/airq/A.npy  shape", A.shape)
