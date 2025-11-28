@@ -1,0 +1,37 @@
+Imported patched transformer from /home/deeps/deepmvi-seminar/DeepMVI/_patched_transformer_for_dataset.py
+Loaded X.npy shape: (1000, 10)
+start
+Block size is 200, kernel size is 20
+Use Kernel Regression :  True
+Use Context in Keys :  False
+Use Local Attention :  False
+Starting Epoch : 0
+Starting Epoch : 1
+done validation, Patience :  0
+validation loss :  0.3398118669352578
+train loss :  0.3851939306206935
+Starting Epoch : 2
+Starting Epoch : 3
+done validation, Patience :  0
+validation loss :  0.31095605128212483
+train loss :  0.22543461232441167
+Starting Epoch : 4
+done validation, Patience :  0
+validation loss :  0.3063308175722608
+train loss :  0.18576103808784414
+Starting Epoch : 5
+Starting Epoch : 6
+done validation, Patience :  1
+validation loss :  0.3143571077414582
+train loss :  0.16391549598704722
+Starting Epoch : 7
+done validation, Patience :  2
+validation loss :  0.3108141617993769
+train loss :  0.15236359750289524
+Early Stopping
+Saved imputed output to /home/deeps/deepmvi-seminar/output_deepmvi/airq/imputed.npy
+Imputed shape: (1000, 10)
+
+Saved plots into /home/deeps/deepmvi-seminar/plots/airq
+
+.

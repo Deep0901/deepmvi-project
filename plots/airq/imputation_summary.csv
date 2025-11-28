@@ -1,2 +1,2 @@
-rows,cols,overall_MAE,changed_fraction,missing_fraction
-5000,20,4.666949067422184e-05,0.00032,0.0
+rows,cols,overall_MAE,missing_frac
+1000,10,2.1431800495295093e-19,0.02

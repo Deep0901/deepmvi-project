@@ -1,0 +1,43 @@
+Imported patched transformer from /home/deeps/deepmvi-seminar/DeepMVI/_patched_transformer_for_dataset.py
+Loaded X.npy shape: (5000, 20)
+start
+Block size is 50, kernel size is 16
+Use Kernel Regression :  True
+Use Context in Keys :  False
+Use Local Attention :  False
+Starting Epoch : 0
+done validation, Patience :  0
+validation loss :  0.3013405269755049
+train loss :  0.41075584056217823
+done validation, Patience :  0
+validation loss :  0.2726379654674037
+train loss :  0.2912467524143838
+done validation, Patience :  1
+validation loss :  0.27640348426655226
+train loss :  0.2787290252716237
+done validation, Patience :  0
+validation loss :  0.26620349816938216
+train loss :  0.2675756037429131
+done validation, Patience :  0
+validation loss :  0.2598994572003119
+train loss :  0.2613801683582252
+done validation, Patience :  1
+validation loss :  0.25747746547899997
+train loss :  0.2564813852962107
+Starting Epoch : 1
+done validation, Patience :  0
+validation loss :  0.2556115899222647
+train loss :  0.24970215326974454
+done validation, Patience :  1
+validation loss :  0.26617000034711974
+train loss :  0.24665903997853614
+done validation, Patience :  2
+validation loss :  0.25909652663459953
+train loss :  0.24312706155954153
+Early Stopping
+Saved imputed output to /home/deeps/deepmvi-seminar/output_deepmvi/electricity/imputed.npy
+Imputed shape: (5000, 20)
+
+Saved plots into /home/deeps/deepmvi-seminar/plots/electricity
+
+.

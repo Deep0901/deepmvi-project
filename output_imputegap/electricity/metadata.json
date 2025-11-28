@@ -1,0 +1,8 @@
+{
+    "dataset": "electricity",
+    "n_samples": 5000,
+    "n_features": 20,
+    "imputer": "DeepMVI",
+    "version": "1.0",
+    "notes": "DeepMVI ImputeGAP export"
+}
